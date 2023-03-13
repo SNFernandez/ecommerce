@@ -1,0 +1,32 @@
+[{
+    "id": "mouse1",
+    "nombre": "Logitech G300s",
+    "precio": 18500,
+    "cantidad": 1,
+    "img": "../images/mouse-logitech-g300s.jpg",
+    "boton":5
+},
+{
+    "id": "mouse2",
+    "nombre": "Hyperx PulseFire",
+    "precio": 14200,
+    "cantidad": 1,
+    "img": "../images/mouse-hyperx-pulsefire.png",
+    "boton":6
+},
+{
+    "id": "mouse3",
+    "nombre": "Redragon Invader",
+    "precio": 12800,
+    "cantidad": 1,
+    "img": "../images/mouse-redragon-invader.png",
+    "boton":7
+},
+{
+    "id": "mouse4",
+    "nombre": "Razer DeathAdder",
+    "precio": 16400,
+    "cantidad": 1,
+    "img": "../images/mouse-razer-death-adder.png",
+    "boton":8
+}]
