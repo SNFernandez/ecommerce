@@ -1,0 +1,146 @@
+[
+    {
+        "id": "teclado1",
+        "nombre": "Logitech G Pro",
+        "precio": 29500,
+        "cantidad": 1,
+        "img": "../images/logitech-g-pro.png",
+        "boton": 1,
+        "class":"teclado"
+    },
+    {
+        "id": "teclado2",
+        "nombre": "Redragon Shrpnel",
+        "precio": 22000,
+        "cantidad": 1,
+        "img": "../images/redragon-shrpnel.jpg",
+        "boton": 2,
+        "class":"teclado"
+    },
+    {
+        "id": "teclado3",
+        "nombre": "Redragon Shiva",
+        "precio": 24100,
+        "cantidad": 1,
+        "img": "../images/redragon-shiva.png",
+        "boton": 3,
+        "class":"teclado"
+    },
+    {
+        "id": "teclado4",
+        "nombre": "Hyperx Alloy",
+        "precio": 25300,
+        "cantidad": 1,
+        "img": "../images/hyperx-alloy.jpg",
+        "boton": 4,
+        "class":"teclado"
+    },
+    {
+        "id": "mouse1",
+        "nombre": "Logitech G300s",
+        "precio": 18500,
+        "cantidad": 1,
+        "img": "../images/mouse-logitech-g300s.jpg",
+        "boton": 5,
+        "class": "mouse"
+    },
+    {
+        "id": "mouse2",
+        "nombre": "Hyperx PulseFire",
+        "precio": 14200,
+        "cantidad": 1,
+        "img": "../images/mouse-hyperx-pulsefire.png",
+        "boton": 6,
+        "class": "mouse"
+    },
+    {
+        "id": "mouse3",
+        "nombre": "Redragon Invader",
+        "precio": 12800,
+        "cantidad": 1,
+        "img": "../images/mouse-redragon-invader.png",
+        "boton": 7,
+        "class": "mouse"
+    },
+    {
+        "id": "mouse4",
+        "nombre": "Razer DeathAdder",
+        "precio": 16400,
+        "cantidad": 1,
+        "img": "../images/mouse-razer-death-adder.png",
+        "boton": 8,
+        "class": "mouse"
+    },
+    {
+        "id": "microfono1",
+        "nombre": "Hyperx QuadCast",
+        "precio": 32100,
+        "cantidad": 1,
+        "img": "../images/microfono-hyperx-quadcast.png",
+        "boton": 9,
+        "class": "microfono"
+    },
+    {
+        "id": "microfono2",
+        "nombre": "Razer Seiren",
+        "precio": 27500,
+        "cantidad": 1,
+        "img": "../images/microfono-razer-seiren.png",
+        "boton": 10,
+        "class": "microfono"
+    },
+    {
+        "id": "microfono3",
+        "nombre": "Gxt Exxo",
+        "precio": 25800,
+        "cantidad": 1,
+        "img": "../images/microfono-gxt-exxo.png",
+        "boton": 11,
+        "class": "microfono"
+    },
+    {
+        "id": "microfono4",
+        "nombre": "Noga St02",
+        "precio": 22300,
+        "cantidad": 1,
+        "img": "../images/microfono-noga-st02.png",
+        "boton": 12,
+        "class": "microfono"
+    },
+    {
+        "id": "auricular1",
+        "nombre": "Hyperx CloudStin",
+        "precio": 12700,
+        "cantidad": 1,
+        "img": "../images/auriculares-hyperx-cloud-stin.png",
+        "boton": 13,
+        "class": "auricular"
+    },
+    {
+        "id": "auricular2",
+        "nombre": "Redragon Zeus",
+        "precio": 18600,
+        "cantidad": 1,
+        "img": "../images/auriculares-redragon-zeus.png",
+        "boton": 14,
+        "class": "auricular"
+    },
+    {
+        "id": "auricular3",
+        "nombre": "Vsg Singulaarity",
+        "precio": 17200,
+        "cantidad": 1,
+        "img": "../images/auriculares-vsg-singularity.png",
+        "boton": 15,
+        "class": "auricular"
+    },
+    {
+        "id": "auricular4",
+        "nombre": "Logitech G432",
+        "precio": 14500,
+        "cantidad": 1,
+        "img": "../images/auriculares-logitech-g432.png",
+        "boton": 16,
+        "class": "auricular"
+    }
+]

@@ -1,4 +1,4 @@
-const url0 = "/json/productos-teclado.json"
+const url0 = "/json/productos.json"
 fetch(url0)
     .then(response => response.json())
     .then(data => {
@@ -7,10 +7,10 @@ fetch(url0)
     })
     .catch(error => console.error(error))
 const listado = document.getElementById("listado")
-const listadoproductos = "/json/productos-teclado.json"
+const listadoproductos = "/json/productos.json"
 
 
-const url1 = "/json/productos-mouse.json"
+const url1 = "/json/productos.json"
 fetch(url1)
     .then(response => response.json())
     .then(data => {
@@ -19,11 +19,11 @@ fetch(url1)
     })
     .catch(error => console.error(error))
 const listado1 = document.getElementById("listado1")
-const listadoproductos1 = "/json/productos-mouse.json"
+const listadoproductos1 = "/json/productos.json"
 
 
 
-const url2 = "/json/productos-auricular.json"
+const url2 = "/json/productos.json"
 fetch(url2)
     .then(response => response.json())
     .then(data => {
@@ -32,11 +32,11 @@ fetch(url2)
     })
     .catch(error => console.error(error))
 const listado2 = document.getElementById("listado2")
-const listadoproductos2 = "/json/productos-auricular.json"
+const listadoproductos2 = "/json/productos.json"
 
 
 
-const url3 = "/json/productos-microfono.json"
+const url3 = "/json/productos.json"
 fetch(url3)
     .then(response => response.json())
     .then(data => {
@@ -45,7 +45,7 @@ fetch(url3)
     })
     .catch(error => console.error(error))
 const listado3 = document.getElementById("listado3")
-const listadoproductos3 = "/json/productos-microfono.json"
+const listadoproductos3 = "/json/productos.json"
 
 
 
@@ -55,7 +55,7 @@ fetch(listadoproductos)
         data.forEach(producto => {
             listado.innerHTML += `
             <div class="container-card">
-            <div class="card" id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
+            <div class="card" "id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
                 <div>
                     <hr class="hr-card">
                 </div>
@@ -144,5 +144,5 @@ const agregarAlCarrito = (id) => {
     }
     console.log(carrito)
 }
-
+z
 let carrito = []
