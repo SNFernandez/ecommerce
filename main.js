@@ -142,7 +142,7 @@ const agregarAlCarrito = (id) => {
         const producto = producto.find(producto === producto.id === id)
         carrito.push(producto)
     }
-    console.log(listadoproductos1)
+    console.log(carrito)
 }
 
 let carrito = []
