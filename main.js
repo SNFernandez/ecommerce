@@ -53,6 +53,7 @@ fetch(listadoproductos)
     .then(response => response.json())
     .then(data => {
         data.forEach(producto => {
+            if (producto.class === "teclado"){
             listado.innerHTML += `
             <div class="container-card">
             <div class="card" "id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
@@ -64,7 +65,7 @@ fetch(listadoproductos)
                 <button class="button-card" id="${producto.boton}">Agregar al Carrito</button>
             </div>
             </div>
-            `
+            `}
         })
     })
     .catch(error => console.error(error));
@@ -73,6 +74,7 @@ fetch(listadoproductos1)
     .then(response => response.json())
     .then(data => {
         data.forEach(producto => {
+            if (producto.class === "mouse"){
             listado1.innerHTML += `
             <div class="container-card">
             <div class="card" id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
@@ -84,7 +86,7 @@ fetch(listadoproductos1)
                 <button class="button-card" id="${producto.boton}">Agregar al Carrito</button>
             </div>
             </div>
-            `
+            `}
         })
     })
     .catch(error => console.error(error));
@@ -93,6 +95,7 @@ fetch(listadoproductos2)
     .then(response => response.json())
     .then(data => {
         data.forEach(producto => {
+            if (producto.class === "auricular"){
             listado2.innerHTML += `
             <div class="container-card">
             <div class="card" id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
@@ -104,7 +107,7 @@ fetch(listadoproductos2)
                 <button class="button-card" id="${producto.boton}">Agregar al Carrito</button>
             </div>
             </div>
-            `
+            `}
         })
     })
     .catch(error => console.error(error));
@@ -113,6 +116,7 @@ fetch(listadoproductos3)
     .then(response => response.json())
     .then(data => {
         data.forEach(producto => {
+            if (producto.class === "microfono"){
             listado3.innerHTML += `
             <div class="container-card">
             <div class="card" id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
@@ -124,8 +128,7 @@ fetch(listadoproductos3)
                 <button class="button-card" id="${producto.boton}">Agregar al Carrito</button>
             </div>
             </div>
-            `
-
+            `}
             const boton = document.getElementById(`${producto.boton}`);
             boton.addEventListener("click",() =>{
                 agregarAlCarrito(producto.id)
