@@ -147,5 +147,4 @@ const agregarAlCarrito = (id) => {
     }
     console.log(carrito)
 }
-z
 let carrito = []
