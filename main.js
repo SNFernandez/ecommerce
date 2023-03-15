@@ -33,6 +33,7 @@ fetch(url)
         localStorage.setItem("microfono", JSON.stringify(microfonos));
         console.log("microfono", microfonos)
 
+
         const listadoTeclado = document.getElementById("listado");
         teclados.forEach(producto => {
             listadoTeclado.innerHTML += `
@@ -45,6 +46,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
+                const boton = document.getElementById(`boton${producto.id}`)
+                boton.addEventListener("click", () => {
+                    agregarAlCarrito(producto.id)
+                })
         });
 
         const listadoMouse = document.getElementById("listado1");
@@ -59,6 +64,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
+                const boton = document.getElementById(`boton${producto.id}`)
+                boton.addEventListener("click", () => {
+                    agregarAlCarrito(producto.id)
+                })
         });
 
         const listadoAuricular = document.getElementById("listado2");
@@ -73,6 +82,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
+                const boton = document.getElementById(`boton${producto.id}`)
+                boton.addEventListener("click", () => {
+                    agregarAlCarrito(producto.id)
+                })
         });
 
         const listadoMicrofono = document.getElementById("listado3");
@@ -87,23 +100,24 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-            const boton = document.getElementById(`boton${producto.id}`)
-            boton.addEventListener("click", () => {
-                agregarAlCarrito(producto.id)
-            })
+                const boton = document.getElementById(`boton${producto.id}`)
+                boton.addEventListener("click", () => {
+                    agregarAlCarrito(producto.id)
+                })
         });
     })
     .catch(error => console.error(error));
 
-
+    let carrito = []
 const agregarAlCarrito = (id) => {
     const productoCarrito = carrito.find(producto => producto.id === id)
+    console.log(productoCarrito)
     if (productoCarrito) {
         productoCarrito.cantidad++
+        console.log()
     } else {
         const producto = data.find(producto => producto.id === id)
         carrito.push(producto)
     }
     console.log(carrito)
 }
-let carrito = []
