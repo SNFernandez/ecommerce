@@ -7,6 +7,7 @@ fetch(url)
         const auriculares = [];
         const microfonos = [];
 
+        const dataglobal = data
         data.forEach(producto => {
             switch (producto.class) {
                 case "teclado":
@@ -46,10 +47,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                const boton = document.getElementById(`boton${producto.id}`)
-                boton.addEventListener("click", () => {
-                    agregarAlCarrito(producto.id)
-                })
+            const boton = document.getElementById(`boton${producto.id}`)
+            boton.addEventListener("click", () => {
+                agregarAlCarrito(producto.id)
+            })
         });
 
         const listadoMouse = document.getElementById("listado1");
@@ -64,10 +65,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                const boton = document.getElementById(`boton${producto.id}`)
-                boton.addEventListener("click", () => {
-                    agregarAlCarrito(producto.id)
-                })
+            const boton = document.getElementById(`boton${producto.id}`)
+            boton.addEventListener("click", () => {
+                agregarAlCarrito(producto.id)
+            })
         });
 
         const listadoAuricular = document.getElementById("listado2");
@@ -82,10 +83,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                const boton = document.getElementById(`boton${producto.id}`)
-                boton.addEventListener("click", () => {
-                    agregarAlCarrito(producto.id)
-                })
+            const boton = document.getElementById(`boton${producto.id}`)
+            boton.addEventListener("click", () => {
+                agregarAlCarrito(producto.id)
+            })
         });
 
         const listadoMicrofono = document.getElementById("listado3");
@@ -110,7 +111,8 @@ fetch(url)
     })
     .catch(error => console.error(error));
 
-    let carrito = []
+
+let carrito = []
 const agregarAlCarrito = (id) => {
     const productoCarrito = carrito.find(producto => producto.id === id)
     console.log(productoCarrito)
