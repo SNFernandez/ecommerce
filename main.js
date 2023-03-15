@@ -2,8 +2,8 @@ const url0 = "../json/productos.json";
 fetch(url0)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
-        localStorage.setItem("teclado", JSON.stringify(data));
+        const productosFiltrados = data.filter(producto => producto.class === "teclado");
+        localStorage.setItem("teclado", JSON.stringify(productosFiltrados));
     })
     .catch(error => console.error(error))
 const listado = document.getElementById("listado")
@@ -12,7 +12,6 @@ const listadoproductos = "../json/productos.json";
 fetch(listadoproductos)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         data.map(producto => {
             if (producto.class === "teclado"){
             listado.innerHTML += `
@@ -37,8 +36,8 @@ fetch(listadoproductos)
     fetch(url1)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            localStorage.setItem("mouse", JSON.stringify(data));
+            const productosFiltrados = data.filter(producto => producto.class === "mouse");
+            localStorage.setItem("mouse", JSON.stringify(productosFiltrados));
         })
         .catch(error => console.error(error))
     const listado1 = document.getElementById("listado1")
@@ -47,7 +46,6 @@ fetch(listadoproductos)
     fetch(listadoproductos1)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
         data.map(producto => {
             if (producto.class === "mouse"){
             listado1.innerHTML += `
@@ -71,8 +69,8 @@ fetch(listadoproductos)
     fetch(url2)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            localStorage.setItem("auriculares", JSON.stringify(data));
+            const productosFiltrados = data.filter(producto => producto.class === "auricular");
+            localStorage.setItem("auricular", JSON.stringify(productosFiltrados));
         })
         .catch(error => console.error(error))
     const listado2 = document.getElementById("listado2")
@@ -81,7 +79,7 @@ fetch(listadoproductos)
     fetch(listadoproductos2)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+
         data.map(producto => {
             if (producto.class === "auricular"){
             listado2.innerHTML += `
@@ -105,8 +103,8 @@ fetch(listadoproductos)
     fetch(url3)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            localStorage.setItem("microfono", JSON.stringify(data));
+            const productosFiltrados = data.filter(producto => producto.class === "microfono");
+            localStorage.setItem("microfono", JSON.stringify(productosFiltrados));
         })
         .catch(error => console.error(error))
     const listado3 = document.getElementById("listado3")
@@ -115,7 +113,7 @@ fetch(listadoproductos)
     fetch(listadoproductos3)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        
         data.map(producto => {
             if (producto.class === "microfono"){
             listado3.innerHTML += `
