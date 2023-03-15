@@ -1,146 +1,107 @@
-const url0 = "../json/productos.json";
-fetch(url0)
+const url = "../json/productos.json";
+fetch(url)
     .then(response => response.json())
     .then(data => {
-        const productosFiltrados = data.filter(producto => producto.class === "teclado");
-        localStorage.setItem("teclado", JSON.stringify(productosFiltrados));
-    })
-    .catch(error => console.error(error))
-const listado = document.getElementById("listado")
-const listadoproductos = "../json/productos.json";
+        const teclados = [];
+        const mouses = [];
+        const auriculares = [];
+        const microfonos = [];
 
-fetch(listadoproductos)
-    .then(response => response.json())
-    .then(data => {
-        data.map(producto => {
-            if (producto.class === "teclado"){
-            listado.innerHTML += `
-            <div class="container-card">
-            <div class="card" "id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
-                <div>
-                    <hr class="hr-card">
-                </div>
-                <div class="name-card">${producto.nombre}</div>
-                <div class="precio-card">${producto.precio}</div>
-                <button class="button-card" id="${producto.boton}">Agregar al Carrito</button>
-            </div>
-            </div>
-            `}
-        })
-    })
-    .catch(error => console.error(error));
+        data.forEach(producto => {
+            switch (producto.class) {
+                case "teclado":
+                    teclados.push(producto);
+                    break;
+                case "mouse":
+                    mouses.push(producto);
+                    break;
+                case "auricular":
+                    auriculares.push(producto);
+                    break;
+                case "microfono":
+                    microfonos.push(producto);
+                    break;
+            }
+        });
 
+        localStorage.setItem("teclado", JSON.stringify(teclados));
+        console.log("teclado", teclados)
+        localStorage.setItem("mouse", JSON.stringify(mouses));
+        console.log("mouse", mouses)
+        localStorage.setItem("auricular", JSON.stringify(auriculares));
+        console.log("auricular", auriculares)
+        localStorage.setItem("microfono", JSON.stringify(microfonos));
+        console.log("microfono", microfonos)
 
+        const listadoTeclado = document.getElementById("listado");
+        teclados.forEach(producto => {
+            listadoTeclado.innerHTML += `
+                <div class="container-card">
+                    <div class="card" id="${producto.id}">
+                        <img src="${producto.img}" alt="${producto.nombre}">
+                        <div><hr class="hr-card"></div>
+                        <div class="name-card">${producto.nombre}</div>
+                        <div class="precio-card">${producto.precio}</div>
+                        <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
+                    </div>
+                </div>`;
+        });
 
-    const url1 = "../json/productos.json";
-    fetch(url1)
-        .then(response => response.json())
-        .then(data => {
-            const productosFiltrados = data.filter(producto => producto.class === "mouse");
-            localStorage.setItem("mouse", JSON.stringify(productosFiltrados));
-        })
-        .catch(error => console.error(error))
-    const listado1 = document.getElementById("listado1")
-    const listadoproductos1 = "../json/productos.json";
+        const listadoMouse = document.getElementById("listado1");
+        mouses.forEach(producto => {
+            listadoMouse.innerHTML += `
+                <div class="container-card">
+                    <div class="card" id="${producto.id}">
+                        <img src="${producto.img}" alt="${producto.nombre}">
+                        <div><hr class="hr-card"></div>
+                        <div class="name-card">${producto.nombre}</div>
+                        <div class="precio-card">${producto.precio}</div>
+                        <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
+                    </div>
+                </div>`;
+        });
 
-    fetch(listadoproductos1)
-    .then(response => response.json())
-    .then(data => {
-        data.map(producto => {
-            if (producto.class === "mouse"){
-            listado1.innerHTML += `
-            <div class="container-card">
-            <div class="card" "id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
-                <div>
-                    <hr class="hr-card">
-                </div>
-                <div class="name-card">${producto.nombre}</div>
-                <div class="precio-card">${producto.precio}</div>
-                <button class="button-card" id="${producto.boton}">Agregar al Carrito</button>
-            </div>
-            </div>
-            `}
-        })
-    })
-    .catch(error => console.error(error));
+        const listadoAuricular = document.getElementById("listado2");
+        auriculares.forEach(producto => {
+            listadoAuricular.innerHTML += `
+                <div class="container-card">
+                    <div class="card" id="${producto.id}">
+                        <img src="${producto.img}" alt="${producto.nombre}">
+                        <div><hr class="hr-card"></div>
+                        <div class="name-card">${producto.nombre}</div>
+                        <div class="precio-card">${producto.precio}</div>
+                        <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
+                    </div>
+                </div>`;
+        });
 
-
-    const url2 = "../json/productos.json";
-    fetch(url2)
-        .then(response => response.json())
-        .then(data => {
-            const productosFiltrados = data.filter(producto => producto.class === "auricular");
-            localStorage.setItem("auricular", JSON.stringify(productosFiltrados));
-        })
-        .catch(error => console.error(error))
-    const listado2 = document.getElementById("listado2")
-    const listadoproductos2 = "../json/productos.json";
-
-    fetch(listadoproductos2)
-    .then(response => response.json())
-    .then(data => {
-
-        data.map(producto => {
-            if (producto.class === "auricular"){
-            listado2.innerHTML += `
-            <div class="container-card">
-            <div class="card" "id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
-                <div>
-                    <hr class="hr-card">
-                </div>
-                <div class="name-card">${producto.nombre}</div>
-                <div class="precio-card">${producto.precio}</div>
-                <button class="button-card" id="${producto.boton}">Agregar al Carrito</button>
-            </div>
-            </div>
-            `}
-        })
+        const listadoMicrofono = document.getElementById("listado3");
+        microfonos.forEach(producto => {
+            listadoMicrofono.innerHTML += `
+                <div class="container-card">
+                    <div class="card" id="${producto.id}">
+                        <img src="${producto.img}" alt="${producto.nombre}">
+                        <div><hr class="hr-card"></div>
+                        <div class="name-card">${producto.nombre}</div>
+                        <div class="precio-card">${producto.precio}</div>
+                        <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
+                    </div>
+                </div>`;
+            const boton = document.getElementById(`boton${producto.id}`)
+            boton.addEventListener("click", () => {
+                agregarAlCarrito(producto.id)
+            })
+        });
     })
     .catch(error => console.error(error));
-
-
-    const url3 = "../json/productos.json";
-    fetch(url3)
-        .then(response => response.json())
-        .then(data => {
-            const productosFiltrados = data.filter(producto => producto.class === "microfono");
-            localStorage.setItem("microfono", JSON.stringify(productosFiltrados));
-        })
-        .catch(error => console.error(error))
-    const listado3 = document.getElementById("listado3")
-    const listadoproductos3 = "../json/productos.json";
-
-    fetch(listadoproductos3)
-    .then(response => response.json())
-    .then(data => {
-        
-        data.map(producto => {
-            if (producto.class === "microfono"){
-            listado3.innerHTML += `
-            <div class="container-card">
-            <div class="card" "id="${producto.id}"><img src="${producto.img}" alt="${producto.nombre}">
-                <div>
-                    <hr class="hr-card">
-                </div>
-                <div class="name-card">${producto.nombre}</div>
-                <div class="precio-card">${producto.precio}</div>
-                <button class="button-card" id="${producto.boton}">Agregar al Carrito</button>
-            </div>
-            </div>
-            `}
-        })
-    })
-    .catch(error => console.error(error));
-
 
 
 const agregarAlCarrito = (id) => {
-    const productoCarrito = carrito.find (producto => producto.id === id)
-    if (productoCarrito){
+    const productoCarrito = carrito.find(producto => producto.id === id)
+    if (productoCarrito) {
         productoCarrito.cantidad++
-    }else {
+    } else {
         const producto = data.find(producto => producto.id === id)
-
         carrito.push(producto)
     }
     console.log(carrito)
