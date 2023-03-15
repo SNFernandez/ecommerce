@@ -102,6 +102,8 @@ fetch(url)
                 </div>`;
                 const boton = document.getElementById(`boton${producto.id}`)
                 boton.addEventListener("click", () => {
+                    const producto = data.find(producto => producto.id === producto.id);
+                    console.log(producto);
                     agregarAlCarrito(producto.id)
                 })
         });
