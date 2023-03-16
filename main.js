@@ -2,43 +2,40 @@ const url = "../json/productos.json";
 fetch(url)
     .then(response => response.json())
     .then(data => {
-        const teclados = [];
-        const mouses = [];
-        const auriculares = [];
-        const microfonos = [];
+        const teclado = [];
+        const mouse = [];
+        const auricular = [];
+        const microfono = [];
 
-
-
-        const dataglobal = data
         data.forEach(producto => {
             switch (producto.class) {
                 case "teclado":
-                    teclados.push(producto);
+                    teclado.push(producto);
                     break;
                 case "mouse":
-                    mouses.push(producto);
+                    mouse.push(producto);
                     break;
                 case "auricular":
-                    auriculares.push(producto);
+                    auricular.push(producto);
                     break;
                 case "microfono":
-                    microfonos.push(producto);
+                    microfono.push(producto);
                     break;
             }
         });
 
-        localStorage.setItem("teclado", JSON.stringify(teclados));
-        console.log("teclado", teclados)
-        localStorage.setItem("mouse", JSON.stringify(mouses));
-        console.log("mouse", mouses)
-        localStorage.setItem("auricular", JSON.stringify(auriculares));
-        console.log("auricular", auriculares)
-        localStorage.setItem("microfono", JSON.stringify(microfonos));
-        console.log("microfono", microfonos)
+        localStorage.setItem("teclado", JSON.stringify(teclado));
+        console.log("teclado", teclado)
+        localStorage.setItem("mouse", JSON.stringify(mouse));
+        console.log("mouse", mouse)
+        localStorage.setItem("auricular", JSON.stringify(auricular));
+        console.log("auricular", auricular)
+        localStorage.setItem("microfono", JSON.stringify(microfono));
+        console.log("microfono", microfono)
 
 
         const listadoTeclado = document.getElementById("listado");
-        teclados.forEach(producto => {
+        teclado.forEach(producto => {
             const divProducto = document.createElement("div")
             listadoTeclado.innerHTML += `
                 <div class="container-card">
@@ -53,12 +50,12 @@ fetch(url)
                 listadoTeclado.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito(teclados,producto.id)
+                agregarAlCarrito(teclado,producto.id)
             })
         });
 
         const listadoMouse = document.getElementById("listado1");
-        mouses.forEach(producto => {
+        mouse.forEach(producto => {
             const divProducto = document.createElement("div")
             listadoMouse.innerHTML += `
                 <div class="container-card">
@@ -70,15 +67,15 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                listadoTeclado.appendChild(divProducto)
+                listadoMouse.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito( mouses,producto.id)
+                agregarAlCarrito( mouse,producto.id)
             })
         });
 
         const listadoAuricular = document.getElementById("listado2");
-        auriculares.forEach(producto => {
+        auricular.forEach(producto => {
             const divProducto = document.createElement("div")
             listadoAuricular.innerHTML += `
                 <div class="container-card">
@@ -90,15 +87,15 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                listadoTeclado.appendChild(divProducto)
+                listadoAuricular.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito(auriculares ,producto.id)
+                agregarAlCarrito(auricular,producto.id)
             })
         });
 
         const listadoMicrofono = document.getElementById("listado3");
-        microfonos.forEach(producto => {
+        microfono.forEach(producto => {
             const divProducto = document.createElement("div")
             listadoMicrofono.innerHTML += `
                 <div class="container-card">
@@ -110,12 +107,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                listadoTeclado.appendChild(divProducto)
+                listadoMicrofono.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                const producto = data.find(producto => producto.id === producto.id);
-                console.log(producto);
-                agregarAlCarrito(microfonos, producto.id)
+                agregarAlCarrito( microfono ,producto.id)
             })
         });
     })
@@ -125,8 +120,6 @@ fetch(url)
 let carrito = []
 
 const agregarAlCarrito = (data,id) => {
-    fetch(url)
-        .then(response => response.json())
             const productoCarrito = carrito.find(producto => producto.id === id)
             console.log(productoCarrito)
             if (productoCarrito) {
