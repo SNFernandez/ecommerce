@@ -39,6 +39,7 @@ fetch(url)
 
         const listadoTeclado = document.getElementById("listado");
         teclados.forEach(producto => {
+            const divProducto = document.createElement("div")
             listadoTeclado.innerHTML += `
                 <div class="container-card">
                     <div class="card" id="${producto.id}">
@@ -49,14 +50,16 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
+                listadoTeclado.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito(producto.id)
+                agregarAlCarrito(teclados,producto.id)
             })
         });
 
         const listadoMouse = document.getElementById("listado1");
         mouses.forEach(producto => {
+            const divProducto = document.createElement("div")
             listadoMouse.innerHTML += `
                 <div class="container-card">
                     <div class="card" id="${producto.id}">
@@ -67,14 +70,16 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
+                listadoTeclado.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito(producto.id)
+                agregarAlCarrito( mouses,producto.id)
             })
         });
 
         const listadoAuricular = document.getElementById("listado2");
         auriculares.forEach(producto => {
+            const divProducto = document.createElement("div")
             listadoAuricular.innerHTML += `
                 <div class="container-card">
                     <div class="card" id="${producto.id}">
@@ -85,14 +90,16 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
+                listadoTeclado.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito(producto.id)
+                agregarAlCarrito(auriculares ,producto.id)
             })
         });
 
         const listadoMicrofono = document.getElementById("listado3");
         microfonos.forEach(producto => {
+            const divProducto = document.createElement("div")
             listadoMicrofono.innerHTML += `
                 <div class="container-card">
                     <div class="card" id="${producto.id}">
@@ -103,11 +110,12 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
+                listadoTeclado.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
                 const producto = data.find(producto => producto.id === producto.id);
                 console.log(producto);
-                agregarAlCarrito(producto.id)
+                agregarAlCarrito(microfonos, producto.id)
             })
         });
     })
@@ -116,10 +124,9 @@ fetch(url)
 
 let carrito = []
 
-const agregarAlCarrito = (id) => {
+const agregarAlCarrito = (data,id) => {
     fetch(url)
         .then(response => response.json())
-        .then(data => {
             const productoCarrito = carrito.find(producto => producto.id === id)
             console.log(productoCarrito)
             if (productoCarrito) {
@@ -130,6 +137,4 @@ const agregarAlCarrito = (id) => {
                 carrito.push(producto)
             }
             console.log(carrito)
-        }
-        )
 }
