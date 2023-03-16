@@ -43,7 +43,7 @@ fetch(url)
                         <img src="${producto.img}" alt="${producto.nombre}">
                         <div><hr class="hr-card"></div>
                         <div class="name-card">${producto.nombre}</div>
-                        <div class="precio-card">${producto.precio}</div>
+                        <div class="precio-card">$${producto.precio}</div>
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
@@ -63,7 +63,7 @@ fetch(url)
                         <img src="${producto.img}" alt="${producto.nombre}">
                         <div><hr class="hr-card"></div>
                         <div class="name-card">${producto.nombre}</div>
-                        <div class="precio-card">${producto.precio}</div>
+                        <div class="precio-card">$${producto.precio}</div>
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
@@ -83,7 +83,7 @@ fetch(url)
                         <img src="${producto.img}" alt="${producto.nombre}">
                         <div><hr class="hr-card"></div>
                         <div class="name-card">${producto.nombre}</div>
-                        <div class="precio-card">${producto.precio}</div>
+                        <div class="precio-card">$${producto.precio}</div>
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
@@ -103,7 +103,7 @@ fetch(url)
                         <img src="${producto.img}" alt="${producto.nombre}">
                         <div><hr class="hr-card"></div>
                         <div class="name-card">${producto.nombre}</div>
-                        <div class="precio-card">${producto.precio}</div>
+                        <div class="precio-card">$${producto.precio}</div>
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
@@ -130,4 +130,24 @@ const agregarAlCarrito = (data, id) => {
                 carrito.push(producto)
             }
             console.log(carrito)
+}
+
+const carritoProducto = document.getElementById("carritoProducto")
+
+const mostrarElCarrito = () => {
+carrito.forEach (producto =>{
+    const divProducto = document.createElement("div")
+    divProducto.innerHTML += `
+        <div class="container-card">
+            <div class="card" id="${producto.id}">
+                <img src="${producto.img}" alt="${producto.nombre}">
+                <div><hr class="hr-card"></div>
+                <div class="name-card">${producto.nombre}</div>
+                <div class="precio-card">$${producto.precio}</div>
+                <button class="button-card" id="eliminar${producto.id}">Eliminar</button>
+            </div>
+        </div>`;
+
+        carritoProducto.appendChild(divProducto)
+})
 }
