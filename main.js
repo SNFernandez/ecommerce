@@ -37,7 +37,7 @@ fetch(url)
         const listadoTeclado = document.getElementById("listado");
         teclado.forEach(producto => {
             const divProducto = document.createElement("div")
-            listadoTeclado.innerHTML += `
+            divProducto.innerHTML += `
                 <div class="container-card">
                     <div class="card" id="${producto.id}">
                         <img src="${producto.img}" alt="${producto.nombre}">
@@ -57,7 +57,7 @@ fetch(url)
         const listadoMouse = document.getElementById("listado1");
         mouse.forEach(producto => {
             const divProducto = document.createElement("div")
-            listadoMouse.innerHTML += `
+            divProducto.innerHTML += `
                 <div class="container-card">
                     <div class="card" id="${producto.id}">
                         <img src="${producto.img}" alt="${producto.nombre}">
@@ -77,7 +77,7 @@ fetch(url)
         const listadoAuricular = document.getElementById("listado2");
         auricular.forEach(producto => {
             const divProducto = document.createElement("div")
-            listadoAuricular.innerHTML += `
+            divProducto.innerHTML += `
                 <div class="container-card">
                     <div class="card" id="${producto.id}">
                         <img src="${producto.img}" alt="${producto.nombre}">
@@ -97,7 +97,7 @@ fetch(url)
         const listadoMicrofono = document.getElementById("listado3");
         microfono.forEach(producto => {
             const divProducto = document.createElement("div")
-            listadoMicrofono.innerHTML += `
+            divProducto.innerHTML += `
                 <div class="container-card">
                     <div class="card" id="${producto.id}">
                         <img src="${producto.img}" alt="${producto.nombre}">
@@ -119,7 +119,7 @@ fetch(url)
 
 let carrito = []
 
-const agregarAlCarrito = (data,id) => {
+const agregarAlCarrito = (data, id) => {
             const productoCarrito = carrito.find(producto => producto.id === id)
             console.log(productoCarrito)
             if (productoCarrito) {
