@@ -7,6 +7,8 @@ fetch(url)
         const auriculares = [];
         const microfonos = [];
 
+
+
         const dataglobal = data
         data.forEach(producto => {
             switch (producto.class) {
@@ -101,27 +103,33 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                const boton = document.getElementById(`boton${producto.id}`)
-                boton.addEventListener("click", () => {
-                    const producto = data.find(producto => producto.id === producto.id);
-                    console.log(producto);
-                    agregarAlCarrito(producto.id)
-                })
+            const boton = document.getElementById(`boton${producto.id}`)
+            boton.addEventListener("click", () => {
+                const producto = data.find(producto => producto.id === producto.id);
+                console.log(producto);
+                agregarAlCarrito(producto.id)
+            })
         });
     })
     .catch(error => console.error(error));
 
 
 let carrito = []
+
 const agregarAlCarrito = (id) => {
-    const productoCarrito = carrito.find(producto => producto.id === id)
-    console.log(productoCarrito)
-    if (productoCarrito) {
-        productoCarrito.cantidad++
-        console.log()
-    } else {
-        const producto = data.find(producto => producto.id === id)
-        carrito.push(producto)
-    }
-    console.log(carrito)
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const productoCarrito = carrito.find(producto => producto.id === id)
+            console.log(productoCarrito)
+            if (productoCarrito) {
+                productoCarrito.cantidad++
+                console.log()
+            } else {
+                const producto = data.find(producto => producto.id === id)
+                carrito.push(producto)
+            }
+            console.log(carrito)
+        }
+        )
 }
