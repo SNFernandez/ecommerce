@@ -346,10 +346,11 @@ hr {
     align-items: center;
     margin-top: 120px;
     text-align: center;
+    transition: all 0.5s;
 }
 
 .linea-nombre:hover {
-    color: #29266b;
+    color: #2b2eeb;
     transition: 0.6s;
 }
 
@@ -371,8 +372,22 @@ hr {
     display: flex;
     width: 85vw;
     height: 75vh;
-    margin: 25vh auto;
+    margin: 20vh auto;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
+}
+.dolar {
+    font-size: 38px;
+    color: #040221;
+    width: 50vh;
+    height: 2vw;
+    margin: 6.5vw 20vh;
+    font-weight: 500;
+    transition: all 1s;
+}
+.dolar:hover{
+    color: #2b2eeb;
+    transition: all 1.5s;
+    transform: scale(1.15);
 }

@@ -1,3 +1,4 @@
+
 const url = "../json/productos.json";
 fetch(url)
     .then(response => response.json())
@@ -47,10 +48,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                listadoTeclado.appendChild(divProducto)
+            listadoTeclado.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito(teclado,producto.id)
+                agregarAlCarrito(teclado, producto.id)
             })
         });
 
@@ -67,10 +68,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                listadoMouse.appendChild(divProducto)
+            listadoMouse.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito( mouse,producto.id)
+                agregarAlCarrito(mouse, producto.id)
             })
         });
 
@@ -87,10 +88,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                listadoAuricular.appendChild(divProducto)
+            listadoAuricular.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito(auricular,producto.id)
+                agregarAlCarrito(auricular, producto.id)
             })
         });
 
@@ -107,10 +108,10 @@ fetch(url)
                         <button class="button-card" id="boton${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>`;
-                listadoMicrofono.appendChild(divProducto)
+            listadoMicrofono.appendChild(divProducto)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
-                agregarAlCarrito( microfono ,producto.id)
+                agregarAlCarrito(microfono, producto.id)
             })
         });
     })
@@ -121,6 +122,7 @@ let carrito = []
 
 const agregarAlCarrito = (data, id) => {
     const productoCarrito = carrito.find(producto => producto.id === id)
+    localStorage.setItem("Producto-Carrito", productoCarrito)
     if (productoCarrito) {
         productoCarrito.cantidad++
     } else {
@@ -132,21 +134,3 @@ const agregarAlCarrito = (data, id) => {
 }
 
 const carritoProducto = document.getElementById("carritoProducto")
-
-const mostrarCarrito = () => {
-    carritoProducto.innerHTML = ""
-    carrito.forEach(producto => {
-        const divProducto = document.createElement("div")
-        divProducto.innerHTML += `
-            <div class="container-card">
-                <div class="card" id="${producto.id}">
-                    <img src="${producto.img}" alt="${producto.nombre}">
-                    <div><hr class="hr-card"></div>
-                    <div class="name-card">${producto.nombre}</div>
-                    <div class="precio-card">$${producto.precio}</div>
-                    <button class="button-card" id="eliminar${producto.id}">Eliminar</button>
-                </div>
-            </div>`;
-        carritoProducto.appendChild(divProducto)
-    })
-}
