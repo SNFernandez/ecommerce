@@ -4,17 +4,22 @@ setInterval(() => {
 
     fetch(dolar)
         .then(response => response.json())
-        .then(({ oficial, blue })=>{
+        .then(({ oficial, blue }) => {
             dolarDiv.innerHTML = `
             <h4>Cotizacion</h4>
             <p>Dolar-Oficial: $${oficial}</p>
+            <p>Dolar-Blue: $${blue}</p>
             `
         })
-.catch(error => console.error(error))
+        .catch(error => console.error(error))
 }, 500)
 
+const url = "../json/productos.json";
 
+const carrito = JSON.parse(localStorage.getItem("Producto-Carrito")) || []
 const carritoProducto = document.getElementById("carritoProducto")
+
+
 const mostrarCarrito = () => {
     carritoProducto.innerHTML = ""
     carrito.forEach(producto => {
@@ -26,10 +31,31 @@ const mostrarCarrito = () => {
                     <div><hr class="hr-card"></div>
                     <div class="name-card">${producto.nombre}</div>
                     <div class="precio-card">$${producto.precio}</div>
+                    <div class="precio-card">Cantidad: ${producto.cantidad}</div>
                     <button class="button-card" id="eliminar${producto.id}">Eliminar</button>
                 </div>
             </div>`;
         carritoProducto.appendChild(divProducto)
-        agregarAlCarrito()
     })
+}
+mostrarCarrito()
+
+const borrarCarrito = document.getElementById("borrarCarrito")
+borrarCarrito.addEventListener("click", () => {
+    vaciarCarrito()
+})
+
+const vaciarCarrito = () => {
+    localStorage.removeItem("Producto-Carrito")
+    carrito.length = 0
+    mostrarCarrito()
+}
+const precioFinal = document.getElementById("precioFinal");
+
+const precio = () => {
+    let precioTotal = 0
+    carrito.forEach(producto =>{
+        precioTotal += producto.precio * producto.cantidad
+    })
+    precioFinal.innerHTML = `Precio Final: $${precioTotal}`
 }

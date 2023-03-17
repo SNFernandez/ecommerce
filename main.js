@@ -122,15 +122,13 @@ let carrito = []
 
 const agregarAlCarrito = (data, id) => {
     const productoCarrito = carrito.find(producto => producto.id === id)
-    localStorage.setItem("Producto-Carrito", productoCarrito)
     if (productoCarrito) {
         productoCarrito.cantidad++
+        localStorage.setItem("Producto-Carrito", JSON.stringify(carrito))
     } else {
         const producto = data.find(producto => producto.id === id)
         carrito.push(producto)
+        localStorage.setItem("Producto-Carrito", JSON.stringify(carrito))
     }
     console.log(carrito)
-    mostrarCarrito()
 }
-
-const carritoProducto = document.getElementById("carritoProducto")

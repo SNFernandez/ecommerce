@@ -248,12 +248,13 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
     flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .card {
-    height: 410px;
+    height: 435px;
     max-width: 235px;
     border-radius: 3px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -368,14 +369,15 @@ hr {
 }
 
 .container-carrito{
-    background-image: linear-gradient(180deg, #09072c, #0b0f37, #111443, #17184e, #1f1c5a);
+    background-image: linear-gradient(to top, #2b2eeb, #2c2fcd, #2d2fb0, #2e2d92, #2e2b76);
     display: flex;
-    width: 85vw;
-    height: 75vh;
-    margin: 20vh auto;
+    width: 90vw;
+    height: 80vh;
+    margin: 50vh auto;
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
+    border-radius: 5px;
+    flex-direction: column;
 }
 .dolar {
     font-size: 38px;
@@ -390,4 +392,47 @@ hr {
     color: #2b2eeb;
     transition: all 1.5s;
     transform: scale(1.15);
+}
+.button-carrito {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2vw auto;
+    width: 160px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background-color: #17184e;
+    color: #FFFEF7;
+    font-size: 15px;
+    font-weight: 700;
+    transition: all 0.5s;
+}
+.button-carrito:hover{
+    background-color: transparent;
+    color: #FFFEF7;
+    transition: all .35s;
+    border: solid 2.5px #191a67;
+    font-size: 16.5px;
+    font-weight: 700;
+    width: 165px;
+    height: 50px;
+    transition: all 0.5s;
+}
+.container-productos{
+    width: 100%;
+}
+.container-button {
+    width: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+.precio-final{
+    font-size: 20px;
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    margin: 2vh;
 }
