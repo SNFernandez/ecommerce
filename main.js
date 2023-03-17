@@ -120,34 +120,33 @@ fetch(url)
 let carrito = []
 
 const agregarAlCarrito = (data, id) => {
-            const productoCarrito = carrito.find(producto => producto.id === id)
-            console.log(productoCarrito)
-            if (productoCarrito) {
-                productoCarrito.cantidad++
-                console.log()
-            } else {
-                const producto = data.find(producto => producto.id === id)
-                carrito.push(producto)
-            }
-            console.log(carrito)
+    const productoCarrito = carrito.find(producto => producto.id === id)
+    if (productoCarrito) {
+        productoCarrito.cantidad++
+    } else {
+        const producto = data.find(producto => producto.id === id)
+        carrito.push(producto)
+    }
+    console.log(carrito)
+    mostrarCarrito()
 }
 
 const carritoProducto = document.getElementById("carritoProducto")
 
-const mostrarElCarrito = () => {
-carrito.forEach (producto =>{
-    const divProducto = document.createElement("div")
-    divProducto.innerHTML += `
-        <div class="container-card">
-            <div class="card" id="${producto.id}">
-                <img src="${producto.img}" alt="${producto.nombre}">
-                <div><hr class="hr-card"></div>
-                <div class="name-card">${producto.nombre}</div>
-                <div class="precio-card">$${producto.precio}</div>
-                <button class="button-card" id="eliminar${producto.id}">Eliminar</button>
-            </div>
-        </div>`;
-
+const mostrarCarrito = () => {
+    carritoProducto.innerHTML = ""
+    carrito.forEach(producto => {
+        const divProducto = document.createElement("div")
+        divProducto.innerHTML += `
+            <div class="container-card">
+                <div class="card" id="${producto.id}">
+                    <img src="${producto.img}" alt="${producto.nombre}">
+                    <div><hr class="hr-card"></div>
+                    <div class="name-card">${producto.nombre}</div>
+                    <div class="precio-card">$${producto.precio}</div>
+                    <button class="button-card" id="eliminar${producto.id}">Eliminar</button>
+                </div>
+            </div>`;
         carritoProducto.appendChild(divProducto)
-})
+    })
 }
