@@ -89,10 +89,11 @@ const vaciarCarrito = () => {
 
 const precioFinal = document.getElementById("precioFinal");
 const precio = () => {
-    const precioTotal = 0
+    let precioTotal = 0
     carrito.forEach(producto => {
         precioTotal += producto.precio * producto.cantidad
         precioFinal.innerHTML = `Precio Final: $${precioTotal}`
+        mostrarCarrito()
     })
 }
 
