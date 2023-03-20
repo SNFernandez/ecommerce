@@ -52,6 +52,11 @@ fetch(url)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
                 agregarAlCarrito(teclado, producto.id)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto Agregado',
+                    text: 'Su producto seleccionado fue enviado al carrito',
+                })
             })
         });
 
@@ -72,6 +77,11 @@ fetch(url)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
                 agregarAlCarrito(mouse, producto.id)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto Agregado',
+                    text: 'Su producto seleccionado fue enviado al carrito',
+                })
             })
         });
 
@@ -92,6 +102,11 @@ fetch(url)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
                 agregarAlCarrito(auricular, producto.id)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto Agregado',
+                    text: 'Su producto seleccionado fue enviado al carrito',
+                })
             })
         });
 
@@ -112,6 +127,11 @@ fetch(url)
             const boton = document.getElementById(`boton${producto.id}`)
             boton.addEventListener("click", () => {
                 agregarAlCarrito(microfono, producto.id)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto Agregado',
+                    text: 'Su producto seleccionado fue enviado al carrito',
+                })
             })
         });
     })
