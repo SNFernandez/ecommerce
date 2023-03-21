@@ -56,6 +56,7 @@ const eliminarProducto = (id) => {
             carrito.splice(index, 1); 
         }
         mostrarCarrito();
+        precio();
         Swal.fire({
             icon: 'success',
             title: 'Producto Borrado',
@@ -92,17 +93,18 @@ const vaciarCarrito = () => {
     mostrarCarrito()
 }
 
-
-
 const precioFinal = document.getElementById("precioFinal");
 const precio = () => {
     let precioTotal = 0
     carrito.forEach(producto => {
         precioTotal += producto.precio * producto.cantidad
-        precioFinal.innerHTML = `Precio Final: $${precioTotal}`
+        precioFinal.innerHTML = `Precio Final: $ ${precioTotal}`
         mostrarCarrito()
+        localStorage.setItem("Precio-Final",`$ ${precioTotal}`)
     })
 }
+precio()
+
 
 const finalizarCompra = document.getElementById("finalizarCompra")
 finalizarCompra.addEventListener("click", () => {
@@ -117,7 +119,6 @@ finalizarCompra.addEventListener("click", () => {
         return
     }
     else {
-        localStorage.removeItem("Producto-Carrito")
         carrito.length = 0
         mostrarCarrito()
         console.log("Finalizo la compra")
