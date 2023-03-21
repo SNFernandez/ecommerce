@@ -47,17 +47,22 @@ const mostrarCarrito = () => {
 mostrarCarrito()
 
 const eliminarProducto = (id) => {
-    const index = carrito.findIndex(producto => producto.id === id)
+    const index = carrito.findIndex(producto => producto.id === id);
     if (index !== -1) {
-        carrito.splice(index, 1)
-        mostrarCarrito()
+        const producto = carrito[index];
+        if (producto.cantidad > 1) {
+            producto.cantidad -= 1; 
+        } else {
+            carrito.splice(index, 1); 
+        }
+        mostrarCarrito();
         Swal.fire({
             icon: 'success',
             title: 'Producto Borrado',
             text: 'Borro el producto del carrito',
-        })
+        });
     }
-}
+};
 
 const borrarCarrito = document.getElementById("borrarCarrito")
 borrarCarrito.addEventListener("click", () => {
@@ -69,13 +74,15 @@ borrarCarrito.addEventListener("click", () => {
             footer: '<a>Hay que agregar productos al carrito</a>'
         })
     }
-    else { vaciarCarrito() 
+    else {
+        vaciarCarrito()
         Swal.fire({
             icon: 'info',
             title: 'Eliminado',
             text: 'A borrado todos los productos del carritto',
             footer: '<a>Borro todos los productos</a>'
-        }) }
+        })
+    }
 
 })
 
